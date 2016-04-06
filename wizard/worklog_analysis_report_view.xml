@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_worklog_analysis_report" model="ir.ui.view">
+            <field name="name">Worklog analysis report</field>
+            <field name="model">worklog.analysis.report</field>
+            <field name="arch" type="xml">
+                <form string="Worklog analysis report">
+                    <group string="User">
+                        <field name="user_id"/>
+                    </group>
+                    <group string="Report period">
+                        <field name="date_start"/>
+                        <field name="date_stop"/>
+                    </group>                 
+                    <footer>
+                        <button name="get_report" string="Download Report" type="object" class="oe_highlight" />
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_worklog_analysis_report" model="ir.actions.act_window">
+            <field name="name">Worklog analysis report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">worklog.analysis.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_worklog_analysis_report"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem name="Reporting"
+            id="base.menu_project_reporting"
+            parent="base.menu_main_pm"
+            groups="project.group_project_manager,project.group_project_user"
+            sequence="70"/>
+        
+        <menuitem
+            name="Worklog analysis report"
+            parent="base.menu_project_reporting"
+            action="action_worklog_analysis_report"
+            id="worklog_analysis_report.report"/>
+    </data>
+</openerp>
