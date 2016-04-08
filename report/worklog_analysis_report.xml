@@ -42,20 +42,25 @@
                                         <h3><span t-esc="day['DATE']"/></h3>
                                         <table class="table table-condensed table-striped">
                                             <tr>
-                                                <th>Date</th>
+                                                <th>Date &amp; Duration &amp; Invoicability</th>
                                                 <th>Contract</th>
-                                                <th>Quantity</th>
-                                                <th>Invoiceable</th>
+                                                <th>Description</th>
                                             </tr>
                                             <t t-foreach="day['DATA']" t-as="daydata">
                                                 <tr>
-                                                    <td><span t-esc="daydata['DATE']"/></td>
-                                                    <td><span t-esc="daydata['CONTRACT_NAME']"/></td>
-                                                    <td><span t-esc="o.decimal_to_hours(daydata['DURATION'])"/></td>
-                                                    <td><span t-esc="daydata['INVOICEABLE']"/> %</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="4"><span t-esc="daydata['DESCRIPTION']"/></td>
+                                                    <td>
+                                                    	<span t-esc="daydata['DATE']"/>
+                                                    	<br />
+                                                    	<span t-esc="o.decimal_to_hours(daydata['DURATION'])"/>
+                                                    	at 
+                                                    	<span t-esc="daydata['INVOICEABLE']"/> %
+                                                    </td>
+                                                    <td>
+                                                    	<span t-esc="daydata['CONTRACT_NAME']"/>
+                                                    </td>
+                                                    <td>
+                                                    	<span t-esc="daydata['DESCRIPTION']"/>
+                                                    </td>
                                                 </tr>
                                             </t>
                                             <tr>
