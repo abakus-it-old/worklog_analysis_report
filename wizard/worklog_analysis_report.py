@@ -1,6 +1,7 @@
 from openerp import models, fields, api, _
 import datetime
 import logging
+import pytz
 _logger = logging.getLogger(__name__)
 
 class worklog_analysis_report(models.TransientModel):
@@ -49,8 +50,10 @@ class worklog_analysis_report(models.TransientModel):
             week_numbers_dict = {}
             days_dict = {}
             
+            local_tz = pytz.timezone(self.env.user.tz)
+            
             for timesheet in hr_analitic_timesheet_obj.browse(cr, uid, timesheet_ids):
-                date_begin_datetime_obj = datetime.datetime.strptime(timesheet.date_begin, "%Y-%m-%d %H:%M:%S")
+                date_begin_datetime_obj = pytz.utc.localize(datetime.datetime.strptime(timesheet.date_begin, '%Y-%m-%d %H:%M:%S')).astimezone(local_tz)
                 date_begin_date_obj = date_begin_datetime_obj.date()
 
                 date_begin_string = date_begin_date_obj.strftime('%d-%m-%Y')
