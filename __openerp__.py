@@ -2,6 +2,7 @@
     'name': 'Worklog analysis report',
     'version': '1.0',
     'category': 'Project',
+    'depends': ['hr_analytic_timesheet_improvements'],
     'description': 
     """
     Worklog analysis report
@@ -10,7 +11,6 @@
     
     This module has been developed by Bernard DELHEZ, intern @ AbAKUS it-solutions.
     """,
-    'depends': ['stock'],
     'data': [
         'wizard/worklog_analysis_report_view.xml',
         'report/worklog_analysis_report.xml',

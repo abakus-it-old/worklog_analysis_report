@@ -32,16 +32,11 @@
             <field name="target">new</field>
         </record>
 
-        <menuitem name="Reporting"
-            id="base.menu_project_reporting"
-            parent="base.menu_main_pm"
-            groups="project.group_project_manager,project.group_project_user"
-            sequence="70"/>
-        
         <menuitem
             name="Worklog analysis report"
-            parent="base.menu_project_reporting"
+            parent="base.menu_project_report"
             action="action_worklog_analysis_report"
-            id="worklog_analysis_report.report"/>
+            id="worklog_analysis_report.report"
+            sequence="50" />
     </data>
 </openerp>

@@ -6,7 +6,7 @@
             id="action_worklog_analysis_report" 
             model="worklog.analysis.report" 
             report_type="qweb-pdf"
-            name="worklog_analysis_report.worklog_analysis_report" 
+            name="worklog_analysis_report.worklog_analysis_report"
             file="worklog_analysis_report" 
         />
 
@@ -42,7 +42,7 @@
                                         <h3><span t-esc="day['DATE']"/></h3>
                                         <table class="table table-condensed table-striped">
                                             <tr>
-                                                <th>Date &amp; Duration &amp; Invoicability</th>
+                                                <th>Date &amp; Duration</th>
                                                 <th>Contract</th>
                                                 <th>Description</th>
                                             </tr>
@@ -52,8 +52,6 @@
                                                     	<span t-esc="daydata['DATE']"/>
                                                     	<br />
                                                     	<span t-esc="o.decimal_to_hours(daydata['DURATION'])"/>
-                                                    	at 
-                                                    	<span t-esc="daydata['INVOICEABLE']"/> %
                                                     </td>
                                                     <td>
                                                     	<span t-esc="daydata['CONTRACT_NAME']"/>
