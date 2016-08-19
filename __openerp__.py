@@ -1,6 +1,6 @@
 ﻿{
     'name': 'Worklog analysis report',
-    'version': '1.0',
+    'version': '9.0.1.0',
     'category': 'Project',
     'depends': ['hr_analytic_timesheet_improvements'],
     'description': 
